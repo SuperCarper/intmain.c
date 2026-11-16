@@ -85,16 +85,18 @@ int main(){
 
         printf("===============================\nCalculadora Simples\n===============================\nSelecione uma operação:\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nOpção:");
         int option, papoi, papi, retornoMenu;
+        char extra = '\0';
         double a, b;
-        retornoMenu = scanf("%d", &option);
+        retornoMenu = scanf("%d%c", &option, &extra);
 
-
-        while (retornoMenu != 1 || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5)) {
-            while (getchar() != '\n'); // Limpa a letra/entrada inválida que ficou presa no teclado
+        while (retornoMenu != 2 || extra != '\n' || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5)) {
+            if (retornoMenu == 0 || extra != '\n') {
+                while (getchar() != '\n'); // Limpa o resto da linha presa no teclado
+            }
             printf("Escolha uma das opções fornecidas.\n");
             printf("===============================\nCalculadora Simples\n===============================\nSelecione uma operação:\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nOpção: ");
-            retornoMenu = scanf("%d", &option);
-
+            extra = '\0';
+            retornoMenu = scanf("%d%c", &option, &extra);
         }
         if (option == 5) {
             lista = 1;
