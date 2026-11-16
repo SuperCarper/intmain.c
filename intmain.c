@@ -84,9 +84,8 @@ int main(){
     while (lista == 0){
 
         printf("===============================\nCalculadora Simples\n===============================\nSelecione uma operação:\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nOpção:");
-        int option, papoi, papi;
+        int option, papoi, papi, retornoMenu;
         double a, b;
-        scanf("%d", &option);
         retornoMenu = scanf("%d", &option);
 
 
